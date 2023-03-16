@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	_ "github.com/traulfs/io-nut/bme280"
+	"github.com/traulfs/io-nut/bme280"
+
 	"github.com/traulfs/tsb"
 )
 
@@ -14,7 +15,7 @@ const MyJack byte = 3 // select Jack 1-8
 
 func main() {
 	//server, err := tsb.NewTcpServer("localhost:3010")
-	server, err := tsb.NewSerialServer("/dev/tty.usbmodem11201", 115200)
+	server, err := tsb.NewSerialServer("/dev/tty.usbmodem11201")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,7 +28,7 @@ func main() {
 
 	// sensor, err := NewBMP(BMP180, i2c) // signature=0x55
 	// sensor, err := NewBMP(BMP280, i2c) // signature=0x58
-	sensor, err := NewBMP(BME280, i2c) // signature=0x60
+	sensor, err := bme280.NewBMP(bme280.BME280, i2c) // signature=0x60
 	// sensor, err := NewBMP(BMP388, i2c) // signature=0x50
 	if err != nil {
 		log.Fatal(err)
@@ -45,28 +46,28 @@ func main() {
 	}
 
 	// Read temperature in celsius degree
-	t, err := sensor.ReadTemperatureC(ACCURACY_STANDARD)
+	t, err := sensor.ReadTemperatureC(bme280.ACCURACY_STANDARD)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Printf("Temperature = %v°C\n", t)
 
 	// Read atmospheric pressure in pascal
-	p, err := sensor.ReadPressurePa(ACCURACY_LOW)
+	p, err := sensor.ReadPressurePa(bme280.ACCURACY_LOW)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Printf("Pressure = %v Pa\n", p)
 
 	// Read atmospheric pressure in mmHg
-	p, err = sensor.ReadPressureMmHg(ACCURACY_LOW)
+	p, err = sensor.ReadPressureMmHg(bme280.ACCURACY_LOW)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Printf("Pressure = %v mmHg\n", p)
 
 	// Read atmospheric pressure in mmHg
-	supported, h1, err := sensor.ReadHumidityRH(ACCURACY_LOW)
+	supported, h1, err := sensor.ReadHumidityRH(bme280.ACCURACY_LOW)
 	if supported {
 		if err != nil {
 			log.Fatal(err)
@@ -77,7 +78,7 @@ func main() {
 	// Read atmospheric altitude in meters above sea level, if we assume
 	// that pressure at see level is equal to 101325 Pa.
 	//a, err := sensor.ReadAltitude(ACCURACY_LOW)
-	a, err := sensor.ReadAltitude(ACCURACY_ULTRA_HIGH)
+	a, err := sensor.ReadAltitude(bme280.ACCURACY_ULTRA_HIGH)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,0 +1,8 @@
+github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07 h1:UyzmZLoiDWMRywV4DUYb9Fbt8uiOSooupjTq10vpvnU=
+github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07/go.mod h1:kDXzergiv9cbyO7IOYJZWg1U88JhDg3PB6klq9Hg2pA=
+github.com/traulfs/io-nut/bme280 v0.0.0-20230316132537-61656f99ef26 h1:uBpVdivB96kn4iryVYG0410adYNDMgIU5O8gFGC9yaQ=
+github.com/traulfs/io-nut/bme280 v0.0.0-20230316132537-61656f99ef26/go.mod h1:usQ14R08rJSjWeOTq6vw07+fGcAqtOEZxcprbevVJL4=
+github.com/traulfs/tsb v0.0.0-20230316130629-e60eb3fefac0 h1:c7V4rTFwtlnEE9mWQe+s7jCdy1puzeea0U2gkY/+PF8=
+github.com/traulfs/tsb v0.0.0-20230316130629-e60eb3fefac0/go.mod h1:bLKZVidX3tyYFrUKuhElpMkSCcWg3J9/stbWCh1xlkI=
+golang.org/x/sys v0.1.0 h1:kunALQeHf1/185U1i0GOB/fy1IPRDDpuoOOqRReG57U=
+golang.org/x/sys v0.1.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
