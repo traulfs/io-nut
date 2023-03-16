@@ -1,3 +1,3 @@
-module github.com/traulfs/io-nut
+module traulfs/io-nut
 
 go 1.20
